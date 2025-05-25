@@ -36,8 +36,8 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             margin="normal"
             required
             fullWidth
-            id="username"
-            label="Username"
+            id="asdf"
+            label="adf"
             name="username"
             autoComplete="username"
             autoFocus
@@ -66,7 +66,7 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
             fullWidth
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
-            onClick={handleLogin}
+            onClick={}
           >
             Sign In
           </Button>
