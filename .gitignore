@@ -37,3 +37,9 @@ dist-ssr/
 # Playwright Test App specific
 webapp/
 playwright-react-app/
+
+# Playwright
+/test-results/
+/playwright-report/
+/blob-report/
+/playwright/.cache/
