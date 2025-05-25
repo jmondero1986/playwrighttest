@@ -17,6 +17,7 @@ jobs:
       run: npm install
     - name: Install React app dependencies
       run: |
+        ls -F
         cd playwright-react-app
         npm install
     - name: Install Playwright Browsers
