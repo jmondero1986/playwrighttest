@@ -42,3 +42,9 @@ webapp/
 /playwright-report/
 /blob-report/
 /playwright/.cache/
+
+# .NET
+[Bb]in/
+[Oo]bj/
+*.user
+*.vs/
