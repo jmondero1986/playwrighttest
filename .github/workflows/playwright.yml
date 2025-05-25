@@ -16,11 +16,15 @@ jobs:
     - name: Install root dependencies
       run: npm install
     - name: Install React app dependencies
-      run: npm install --prefix playwright-react-app
+      run: |
+        cd playwright-react-app
+        npm install
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
     - name: Start React app
-      run: npm run dev --prefix playwright-react-app &
+      run: |
+        cd playwright-react-app
+        npm run dev &
     - name: Run Playwright tests
       run: npx playwright test tests/login.spec.ts
     - uses: actions/upload-artifact@v4
