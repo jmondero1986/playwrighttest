@@ -21,10 +21,6 @@ jobs:
         npm install
     - name: Install Playwright Browsers
       run: npx playwright install --with-deps
-    - name: Start React app
-      run: |
-        cd playwright-react-app
-        npm run dev &
     - name: Run Playwright tests
       run: npx playwright test tests/login.spec.ts
     - uses: actions/upload-artifact@v4
