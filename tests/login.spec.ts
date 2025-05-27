@@ -29,7 +29,7 @@ test.describe('Login Functionality', () => {
     await page.click('button:has-text("Sign In")');
 
     // Expect an error message to be visible
-    await expect(page.locator('text=Invalid username or password.')).toBeVisible();
+    await expect(page.locator('text=Invalid username or password.')).toBeVisible({ timeout: 5000 });
     // Expect to remain on the login page (login elements still visible)
     await expect(page.locator('input[name="username"]')).toBeVisible();
     await expect(page.locator('input[name="password"]')).toBeVisible();

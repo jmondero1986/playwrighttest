@@ -48,5 +48,28 @@ namespace DotnetPlaywrightTests
             await Expect(Page.Locator("input[name=\"password\"]")).ToBeVisibleAsync();
             await Expect(Page.Locator("button:has-text(\"Sign In\")")).ToBeVisibleAsync();
         }
+
+        [TestMethod]
+        public async Task ShouldAllowAUserToLogInSuccessfullyInEdge()
+        {
+            using var playwright = await Playwright.CreateAsync();
+            await using var browser = await playwright.Chromium.LaunchAsync(new BrowserTypeLaunchOptions { Channel = "msedge" });
+            var page = await browser.NewPageAsync();
+
+            await page.GotoAsync("http://localhost:3000/");
+
+            // Fill in the username and password
+            await page.FillAsync("input[name=\"username\"]", "testuser");
+            await page.FillAsync("input[name=\"password\"]", "testpass");
+
+            // Click the login button
+            await page.ClickAsync("button:has-text(\"Sign In\")");
+
+            // Expect to see the dashboard content and not the login form
+            await Expect(page.Locator("h1")).ToHaveTextAsync("Welcome to the Dashboard!");
+            await Expect(page.Locator("input[name=\"username\"]")).ToBeHiddenAsync();
+            await Expect(page.Locator("input[name=\"password\"]")).ToBeHiddenAsync();
+            await Expect(page.Locator("button:has-text(\"Sign In\")")).ToBeHiddenAsync();
+        }
     }
 }
